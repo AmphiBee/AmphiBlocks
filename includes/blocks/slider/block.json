@@ -1,0 +1,11 @@
+{
+  "apiVersion": 2,
+  "title": "Slider",
+  "name": "amphiblocks/slider",
+  "category": "layout",
+  "icon": "images-alt2",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./css/editor.css",
+  "attributes": {
+  }
+}
