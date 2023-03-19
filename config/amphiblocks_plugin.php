@@ -2,6 +2,8 @@
 
 use AmphiBee\Blocks\Providers\RouteServiceProvider;
 use AmphiBee\Blocks\Providers\BlockServiceProvider;
+use AmphiBee\Blocks\Providers\AssetServiceProvider;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -29,6 +31,7 @@ return [
     */
     'providers' => [
         BlockServiceProvider::class,
+        AssetServiceProvider::class
     ],
 
     /*

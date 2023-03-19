@@ -1,7 +1,10 @@
 {
   "name": "plugin/name",
   "description": "Plugin description",
-  "keywords": ["themosis", "plugin"],
+  "keywords": [
+    "themosis",
+    "plugin"
+  ],
   "authors": [
     {
       "name": "Your Name",
@@ -10,14 +13,14 @@
     }
   ],
   "type": "wordpress-plugin",
-  "repositories":[
+  "repositories": [
     {
-      "type":"composer",
-      "url":"https://wpackagist.org"
+      "type": "composer",
+      "url": "https://wpackagist.org"
     }
   ],
   "require": {
     "php": ">=7.1",
-    "composer/installers" : "~1.2"
+    "composer/installers": "~1.2"
   }
 }

@@ -1,3 +1,3 @@
-import '../../css/frontend/style.css';
-
-// import foo from './components/bar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
