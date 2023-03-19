@@ -4,8 +4,17 @@
   "name": "amphiblocks/slider",
   "category": "layout",
   "icon": "images-alt2",
+  "attributes": {
+    "slidesPerPage": {
+      "type": "number",
+      "default": 1
+    },
+    "slideLimit": {
+      "type": "number",
+      "default": 10
+    }
+  },
   "viewScript": ["file:./js/slider.js"],
   "editorScript": "file:./index.js",
-  "editorStyle": "file:./css/editor.css",
-  "attributes": {}
+  "editorStyle": "file:./css/editor.css"
 }

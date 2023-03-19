@@ -38,7 +38,7 @@ class AssetServiceProvider extends ServiceProvider
             $plugin = $this->app->make('wp.plugin.amphiblocks');
             wp_enqueue_script(
                 'amphiblocks/editor-style-overrides',
-                plugins_url( 'js/editor-style-overrides.js', $plugin->getPath() . DS . 'amphiblocks.php' )
+                plugins_url( 'dist/js/editor-style-overrides.js', $plugin->getPath() . DS . 'amphiblocks.php' )
             );
         } );
     }
