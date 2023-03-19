@@ -14,55 +14,80 @@ function BlockEdit({ clientId, attributes, setAttributes }) {
     setAttributes({ [attributeName]: attributeValue });
   };
 
+  const controlSettings = [
+    {
+      label: __("Slides Per Page", "amphiblocks"),
+      attribute: "slidesPerPage",
+      defaultValue: 1,
+      min: 1,
+      type: "number",
+    },
+    {
+      label: __("Slides Per Group", "amphiblocks"),
+      attribute: "slidesPerGroup",
+      defaultValue: 1,
+      min: 1,
+      type: "number",
+    },
+    {
+      label: __("Slide Limit", "amphiblocks"),
+      attribute: "slideLimit",
+      defaultValue: 10,
+      min: 1,
+      type: "number",
+    },
+    {
+      label: __("Show Pagination", "amphiblocks"),
+      attribute: "showPagination",
+      defaultValue: false,
+      type: "toggle",
+    },
+    {
+      label: __("Show Navigation", "amphiblocks"),
+      attribute: "showNavigation",
+      defaultValue: false,
+      type: "toggle",
+    },
+    {
+      label: __("Enable Loop Mode", "amphiblocks"),
+      attribute: "loopMode",
+      defaultValue: false,
+      type: "toggle",
+    },
+  ];
+
   return (
     <div {...useBlockProps()}>
       <InspectorControls>
         <PanelBody title={__("Slider Settings", "amphiblocks")}>
-          <div className={"components-base-control"}>
-            <NumberControl
-              label={__("Slides Per Page", "amphiblocks")}
-              value={attributes.slidesPerPage}
-              onChange={(value) =>
-                updateAttribute("slidesPerPage", parseInt(value, 10) || 1)
-              }
-              min={1}
-            />
-          </div>
-          <div className={"components-base-control"}>
-            <NumberControl
-              label={__("Slides Per Group", "amphiblocks")}
-              value={attributes.slidesPerGroup}
-              onChange={(value) =>
-                updateAttribute("slidesPerGroup", parseInt(value, 10) || 1)
-              }
-              min={1}
-            />
-          </div>
-          <div className={"components-base-control"}>
-            <NumberControl
-              label={__("Slide Limit", "amphiblocks")}
-              value={attributes.slideLimit}
-              onChange={(value) =>
-                updateAttribute("slideLimit", parseInt(value, 10) || 10)
-              }
-              min={1}
-            />
-          </div>
-          <ToggleControl
-            label={__("Show Pagination", "amphiblocks")}
-            checked={attributes.showPagination}
-            onChange={(value) => updateAttribute("showPagination", value)}
-          />
-          <ToggleControl
-            label={__("Show Navigation", "amphiblocks")}
-            checked={attributes.showNavigation}
-            onChange={(value) => updateAttribute("showNavigation", value)}
-          />
-          <ToggleControl
-            label={__("Enable Loop Mode", "amphiblocks")}
-            checked={attributes.loopMode}
-            onChange={(value) => updateAttribute("loopMode", value)}
-          />
+          {controlSettings.map((control) => (
+            <>
+              {control.type === "number" && (
+                <div className={"components-base-control"}>
+                  <NumberControl
+                    label={control.label}
+                    value={attributes[control.attribute]}
+                    onChange={(value) =>
+                      updateAttribute(
+                        control.attribute,
+                        parseInt(value, 10) || control.defaultValue
+                      )
+                    }
+                    min={control.min}
+                  />
+                </div>
+              )}
+              {control.type === "toggle" && (
+                <ToggleControl
+                  label={control.label}
+                  checked={attributes[control.attribute]}
+                  onChange={(value) =>
+                    updateAttribute(control.attribute, value)
+                  }
+                />
+              )}
+            </>
+          ))}
         </PanelBody>
       </InspectorControls>
       <InnerBlockSlider
@@ -73,4 +98,5 @@ function BlockEdit({ clientId, attributes, setAttributes }) {
     </div>
   );
 }
+
 export default BlockEdit;
