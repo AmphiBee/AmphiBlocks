@@ -1,14 +1,27 @@
 import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
 function BlockSave({ attributes }) {
-  const { slidesPerView, showPagination, showNavigation, loopMode } =
-    attributes;
+  const {
+    slidesPerPage,
+    slidesPerGroup,
+    showPagination,
+    showNavigation,
+    loopMode,
+  } = attributes;
+
+  const attributesList = [
+    ["slides-per-view", slidesPerPage],
+    ["slides-per-group", slidesPerGroup],
+    ["pagination", showPagination],
+    ["navigation", showNavigation],
+    ["loop-mode", loopMode],
+  ];
+
   const blockProps = useBlockProps.save({
     className: "swiper",
-    "data-slides-per-view": slidesPerView,
-    "data-pagination": showPagination,
-    "data-navigation": showNavigation,
-    "data-loop-mode": loopMode,
+    ...Object.fromEntries(
+      attributesList.map(([key, value]) => [`data-${key}`, value])
+    ),
   });
 
   const innerBlocksProps = useInnerBlocksProps.save({

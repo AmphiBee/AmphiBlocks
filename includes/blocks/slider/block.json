@@ -9,6 +9,10 @@
       "type": "number",
       "default": 1
     },
+    "slidesPerGroup": {
+      "type": "number",
+      "default": 1
+    },
     "slideLimit": {
       "type": "number",
       "default": 10
