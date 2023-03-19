@@ -1,3 +1,14 @@
+:root {
+  --ab-dot-size: 12px;
+  --ab-dot-bg-color: #bbb;
+  --ab-dot-bg-color-hover: #717171;
+  --ab-add-size: 24px;
+  --ab-add-bg-color: #333;
+  --ab-add-bg-color-hover: #45a049;
+  --ab-controls-button-color: #333;
+  --ab-controls-button-color-disabled: #ccc;
+}
+
 .wp-block-amphiblocks-slider {
   position: relative;
 }
@@ -7,17 +18,6 @@
   > .block-editor-inner-blocks
   > .block-editor-block-list__layout {
   display: flex;
-}
-
-:root {
-  --dot-size: 12px;
-  --dot-bg-color: #bbb;
-  --dot-bg-color-hover: #717171;
-  --add-size: 24px;
-  --add-bg-color: #333;
-  --add-bg-color-hover: #45a049;
-  --controls-button-color: #333;
-  --controls-button-color-disabled: #ccc;
 }
 
 .wp-block-amphiblocks-slider .slides-outer > .slides {
@@ -34,31 +34,31 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: calc(100% + 15px);
+  top: calc(100% - 35px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
 }
 
 .wp-block-amphiblocks-slider .dot {
-  background-color: var(--dot-bg-color);
+  background-color: var(--ab-dot-bg-color);
   border: none;
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
-  height: var(--dot-size);
+  height: var(--ab-dot-size);
   margin: 0 5px;
   outline: none;
-  width: var(--dot-size);
+  width: var(--ab-dot-size);
 }
 
 .wp-block-amphiblocks-slider .dot:hover,
 .wp-block-amphiblocks-slider .dot.current {
-  background-color: var(--dot-bg-color-hover);
+  background-color: var(--ab-dot-bg-color-hover);
 }
 
 .wp-block-amphiblocks-slider .add {
-  background-color: var(--add-bg-color);
+  background-color: var(--ab-add-bg-color);
   border: none;
   border-radius: 2px;
   color: #fff;
@@ -76,8 +76,8 @@
 }
 
 .wp-block-amphiblocks-slider .add svg {
-  height: var(--add-size);
-  width: var(--add-size);
+  height: var(--ab-add-size);
+  width: var(--ab-add-size);
 }
 
 .wp-block-amphiblocks-slider .add path {
@@ -119,12 +119,12 @@
 
 .wp-block-amphiblocks-slider .prev-container button,
 .wp-block-amphiblocks-slider .next-container button {
-  color: var(--controls-button-color);
+  color: var(--ab-controls-button-color);
 }
 
 .wp-block-amphiblocks-slider .prev-container.disable button,
 .wp-block-amphiblocks-slider .next-container.disable button {
-  color: var(--controls-button-color-disabled);
+  color: var(--ab-controls-button-color-disabled);
   cursor: not-allowed;
 }
 
