@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         parseInt(sliderElement.getAttribute("data-slides-per-view")) || 1,
       spaceBetween:
         parseInt(sliderElement.getAttribute("data-space-between")) || 0,
-      loop: true,
+      loop: sliderElement.getAttribute("data-loop-mode") === "true",
       pagination:
         sliderElement.getAttribute("data-pagination") === "true"
           ? {

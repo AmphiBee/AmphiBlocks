@@ -1,12 +1,14 @@
 import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
 function BlockSave({ attributes }) {
-  const { slidesPerView, showPagination, showNavigation } = attributes;
+  const { slidesPerView, showPagination, showNavigation, loopMode } =
+    attributes;
   const blockProps = useBlockProps.save({
     className: "swiper",
     "data-slides-per-view": slidesPerView,
     "data-pagination": showPagination,
     "data-navigation": showNavigation,
+    "data-loop-mode": loopMode,
   });
 
   const innerBlocksProps = useInnerBlocksProps.save({

@@ -20,6 +20,10 @@
     "showNavigation": {
       "type": "boolean",
       "default": true
+    },
+    "loopMode": {
+      "type": "boolean",
+      "default": false
     }
   },
   "viewScript": ["file:./js/slider.js"],

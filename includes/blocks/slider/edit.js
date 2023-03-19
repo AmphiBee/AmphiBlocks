@@ -15,8 +15,13 @@ import {
 import { __ } from "@wordpress/i18n";
 
 function BlockEdit({ clientId, attributes, setAttributes }) {
-  const { slidesPerView, slideLimit, showPagination, showNavigation } =
-    attributes; // ajout des valeurs showPagination et showNavigation dans les attributs
+  const {
+    slidesPerView,
+    slideLimit,
+    showPagination,
+    showNavigation,
+    loopMode,
+  } = attributes; // ajout des valeurs showPagination et showNavigation dans les attributs
 
   const updateSlidesPerView = (value) => {
     setAttributes({ slidesPerView: parseInt(value, 10) || 1 });
@@ -34,6 +39,11 @@ function BlockEdit({ clientId, attributes, setAttributes }) {
   const updateShowNavigation = (value) => {
     // ajout de la fonction pour mettre à jour showNavigation
     setAttributes({ showNavigation: value });
+  };
+
+  const updateLoopMode = (value) => {
+    // ajout de la fonction pour mettre à jour showNavigation
+    setAttributes({ loopMode: value });
   };
 
   return (
@@ -66,6 +76,11 @@ function BlockEdit({ clientId, attributes, setAttributes }) {
             checked={showNavigation}
             onChange={updateShowNavigation}
           />
+          <ToggleControl
+            label={__("Enable Loop Mode", "amphiblocks")}
+            checked={loopMode}
+            onChange={updateLoopMode}
+          />
         </PanelBody>
       </InspectorControls>
       <InnerBlockSlider
@@ -73,6 +88,7 @@ function BlockEdit({ clientId, attributes, setAttributes }) {
         parentBlockId={clientId}
         slidesPerPage={slidesPerView}
         slideLimit={slideLimit}
+        loopMode={loopMode}
         showPagination={showPagination} // ajout de showPagination
         showNavigation={showNavigation} // ajout de showNavigation
       />
