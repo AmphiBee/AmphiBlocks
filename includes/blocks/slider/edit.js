@@ -10,43 +10,71 @@ import {
 import {
   PanelBody,
   __experimentalNumberControl as NumberControl,
+  ToggleControl, // ajout de ToggleControl
 } from "@wordpress/components";
 import { __ } from "@wordpress/i18n";
 
 function BlockEdit({ clientId, attributes, setAttributes }) {
-  const { slidesPerPage, slideLimit } = attributes;
+  const { slidesPerView, slideLimit, showPagination, showNavigation } =
+    attributes; // ajout des valeurs showPagination et showNavigation dans les attributs
 
-  const updateSlidesPerPage = (value) => {
-    setAttributes({ slidesPerPage: parseInt(value, 10) || 1 });
+  const updateSlidesPerView = (value) => {
+    setAttributes({ slidesPerView: parseInt(value, 10) || 1 });
   };
 
   const updateSlideLimit = (value) => {
     setAttributes({ slideLimit: parseInt(value, 10) || 10 });
   };
 
+  const updateShowPagination = (value) => {
+    // ajout de la fonction pour mettre à jour showPagination
+    setAttributes({ showPagination: value });
+  };
+
+  const updateShowNavigation = (value) => {
+    // ajout de la fonction pour mettre à jour showNavigation
+    setAttributes({ showNavigation: value });
+  };
+
   return (
     <div {...useBlockProps()}>
       <InspectorControls>
-        <PanelBody title={__("Slider Settings", "your-text-domain")}>
-          <NumberControl
-            label={__("Slides Per Page", "your-text-domain")}
-            value={slidesPerPage}
-            onChange={updateSlidesPerPage}
-            min={1}
+        <PanelBody title={__("Slider Settings", "amphiblocks")}>
+          <div className={"components-base-control"}>
+            <NumberControl
+              label={__("Slides Per Page", "amphiblocks")}
+              value={slidesPerView}
+              onChange={updateSlidesPerView}
+              min={1}
+            />
+          </div>
+          <div className={"components-base-control"}>
+            <NumberControl
+              label={__("Slide Limit", "amphiblocks")}
+              value={slideLimit}
+              onChange={updateSlideLimit}
+              min={1}
+            />
+          </div>
+          <ToggleControl
+            label={__("Show Pagination", "amphiblocks")}
+            checked={showPagination}
+            onChange={updateShowPagination}
           />
-          <NumberControl
-            label={__("Slide Limit", "your-text-domain")}
-            value={slideLimit}
-            onChange={updateSlideLimit}
-            min={1}
+          <ToggleControl
+            label={__("Show Navigation", "amphiblocks")}
+            checked={showNavigation}
+            onChange={updateShowNavigation}
           />
         </PanelBody>
       </InspectorControls>
       <InnerBlockSlider
         allowedBlock="core/cover"
         parentBlockId={clientId}
-        slidesPerPage={slidesPerPage}
+        slidesPerPage={slidesPerView}
         slideLimit={slideLimit}
+        showPagination={showPagination} // ajout de showPagination
+        showNavigation={showNavigation} // ajout de showNavigation
       />
     </div>
   );

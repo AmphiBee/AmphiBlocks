@@ -2,33 +2,45 @@ import Swiper, { Navigation, Pagination } from "swiper";
 import "swiper/css";
 
 document.addEventListener("DOMContentLoaded", function () {
-  var swiperWrapper = document.querySelector(
-    ".wp-block-amphiblocks-slider.swiper .swiper-wrapper"
+  const sliderElements = document.querySelectorAll(
+    ".wp-block-amphiblocks-slider.swiper"
   );
-  var swiperSlides = swiperWrapper.children;
 
-  for (var i = 0; i < swiperSlides.length; i++) {
-    var newSlide = document.createElement("div");
-    newSlide.classList.add("swiper-slide");
-    newSlide.appendChild(swiperSlides[i].cloneNode(true));
-    swiperWrapper.replaceChild(newSlide, swiperSlides[i]);
-  }
+  sliderElements.forEach((sliderElement) => {
+    let swiperWrapper = sliderElement.querySelector(".swiper-wrapper");
+    var swiperSlides = swiperWrapper.children;
 
-  var swiper = new Swiper(".wp-block-amphiblocks-slider.swiper", {
-    modules: [Navigation, Pagination],
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
+    for (var i = 0; i < swiperSlides.length; i++) {
+      var newSlide = document.createElement("div");
+      newSlide.classList.add("swiper-slide");
+      newSlide.appendChild(swiperSlides[i].cloneNode(true));
+      swiperWrapper.replaceChild(newSlide, swiperSlides[i]);
+    }
+
+    new Swiper(sliderElement, {
+      modules: [Navigation, Pagination],
+      slidesPerView:
+        parseInt(sliderElement.getAttribute("data-slides-per-view")) || 1,
+      spaceBetween:
+        parseInt(sliderElement.getAttribute("data-space-between")) || 0,
+      loop: true,
+      pagination:
+        sliderElement.getAttribute("data-pagination") === "true"
+          ? {
+              el: ".swiper-pagination",
+              clickable: true,
+            }
+          : false,
+      navigation:
+        sliderElement.getAttribute("data-navigation") === "true"
+          ? {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            }
+          : false,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+      },
+    });
   });
 });

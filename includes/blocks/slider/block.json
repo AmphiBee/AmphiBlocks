@@ -5,13 +5,21 @@
   "category": "layout",
   "icon": "images-alt2",
   "attributes": {
-    "slidesPerPage": {
+    "slidesPerView": {
       "type": "number",
       "default": 1
     },
     "slideLimit": {
       "type": "number",
       "default": 10
+    },
+    "showPagination": {
+      "type": "boolean",
+      "default": true
+    },
+    "showNavigation": {
+      "type": "boolean",
+      "default": true
     }
   },
   "viewScript": ["file:./js/slider.js"],

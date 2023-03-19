@@ -1,8 +1,12 @@
 import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
 
-function BlockSave() {
+function BlockSave({ attributes }) {
+  const { slidesPerView, showPagination, showNavigation } = attributes;
   const blockProps = useBlockProps.save({
     className: "swiper",
+    "data-slides-per-view": slidesPerView,
+    "data-pagination": showPagination,
+    "data-navigation": showNavigation,
   });
 
   const innerBlocksProps = useInnerBlocksProps.save({
@@ -12,10 +16,13 @@ function BlockSave() {
   return (
     <div {...blockProps}>
       <div {...innerBlocksProps} />
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-scrollbar"></div>
+      {showPagination && <div className={"swiper-pagination"}></div>}
+      {showNavigation && (
+        <div>
+          <div className={"swiper-button-prev"}></div>
+          <div className={"swiper-button-next"}></div>
+        </div>
+      )}
     </div>
   );
 }
