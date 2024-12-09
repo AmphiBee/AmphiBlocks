@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@wordpress/eslint-plugin": "^14.0.0",
-    "10up-toolkit": "^5.1.0"
+    "10up-toolkit": "^6.0.0"
   },
   "dependencies": {
     "@10up/block-components": "^1.15.7",
