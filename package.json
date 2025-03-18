@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@10up/block-components": "^1.15.7",
-    "@10up/eslint-config": "^3.0.0",
+    "@10up/eslint-config": "^4.0.0",
     "swiper": "^11.0.0"
   },
   "10up-toolkit": {
