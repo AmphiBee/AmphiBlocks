@@ -57,7 +57,7 @@
     webpack-sources "^3.2.3"
     webpackbar "^5.0.2"
 
-"@10up/babel-preset-default@^2.1.0":
+"@10up/babel-preset-default@^2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@10up/babel-preset-default/-/babel-preset-default-2.1.2.tgz#5d7ffcafb9548f439b7e47e371694e9649aecc05"
   integrity sha512-HapG7JTmk6CG0iOGxvw4bVL6M0TcZHW5Ck6nm+bz4AahnOwh87rF3+LUtWs1Nzw6Vlu6zbJoRUflt1GPcQ14/Q==
@@ -94,12 +94,12 @@
     uuid "^9.0.1"
     wp-types "^3.65.0"
 
-"@10up/eslint-config@^3.0.0":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@10up/eslint-config/-/eslint-config-3.1.1.tgz#c3e8788615011ddc25a6f74996bc73be46416db6"
-  integrity sha512-JpnKOulo7vmiT/L9Gn7Dk91MqpAKJqot95rmer+MJ1MZtFedb65ulbNrUr8PwN5dZfQhQ01niAg3APoj/WrFog==
+"@10up/eslint-config@^4.0.0":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@10up/eslint-config/-/eslint-config-4.1.2.tgz#e717f1dc1bb0593d7b615cd602adbbae2d451783"
+  integrity sha512-csIOSPxWUi30NxUkwhLTxRnEp2o6n+8/uNdfb7+n8c3GDI7HfOozaQcrIWx163U7XDfLQ/dAi1P9QkMp2xCLog==
   dependencies:
-    "@10up/babel-preset-default" "^2.1.0"
+    "@10up/babel-preset-default" "^2.1.2"
 
 "@ampproject/remapping@^2.2.0":
   version "2.3.0"
